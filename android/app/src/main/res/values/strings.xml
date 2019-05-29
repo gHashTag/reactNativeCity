@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">reactNativeCity</string>
+    <string name="app_name">Соликамск</string>
+    <string name="fb_app_id">315261496071780</string>
+    <string name="ak_client_token">6179544fe89b339745e491b8b4663a46</string>
 </resources>
