@@ -2,13 +2,10 @@
   "name": "reactNativeCity",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.8"
+    "react-native": "0.59.8",
+    "react-native-facebook-account-kit": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -38,20 +35,23 @@
     "preset": "react-native"
   },
   "scripts": {
-   "start-ios": "react-native run-ios --simulator='iPhone SE' && npm run lint-watch",
-   "start-android": "react-native run-android && npm run lint-watch",
-   "lint": "esw src/**",
-   "lint-watch": "esw -w --changed src/**"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start-ios": "react-native run-ios --simulator='iPhone SE' && npm run lint-watch",
+    "start-android": "react-native run-android && npm run lint-watch",
+    "build": "cd android && ./gradlew assembleRelease",
+    "lint": "esw src/",
+    "lint-watch": "esw -w --changed src/",
+    "test": "jest"
   },
   "precommit": "lint",
   "prettier": {
-   "singleQuote": true,
-   "printWidth": 120,
-   "tabWidth": 2,
-   "trailingComma": "none",
-   "bracketSpacing": true,
-   "semi": false,
-   "useTabs": false,
-   "jsxBracketSameLine": false
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "semi": false,
+    "useTabs": false,
+    "jsxBracketSameLine": false
   }
 }
