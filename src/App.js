@@ -51,7 +51,7 @@ class App extends Component {
       //defaultCountry: "AR"
       initialEmail: 'example.com',
       initialPhoneCountryPrefix: '+66',
-      initialPhoneNumber: '123-456-7890'
+      initialPhoneNumber: '633132803'
     })
   }
 
