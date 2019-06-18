@@ -21,7 +21,7 @@ const authLink = setContext(async (_, { headers }) => {
 })
 
 const client = new ApolloClient({
-  link: authLink.concat(createUploadLink({ uri: 'http://localhost:4000' })),
+  link: authLink.concat(createUploadLink({ uri: 'https://ancient-earth-87642.herokuapp.com' })),
   cache: new InMemoryCache()
 })
 
