@@ -61,6 +61,7 @@ const AccountKit = ({ navigation }) => {
       initialPhoneCountryPrefix: '+7',
       initialPhoneNumber: '9261439109',
       defaultCountry: 'RU'
+      //hello Jenya
     })
     const payload = await RNAccountKit.loginWithPhone()
     handleSignIn(payload.code)
