@@ -9,7 +9,7 @@ import * as Keychain from 'react-native-keychain'
 import AppNavigator from './AppNavigator'
 
 const httpLink = createHttpLink({
-  uri: 'https://ancient-earth-87642.herokuapp.com'
+  uri: 'http://localhost:4000'
 })
 
 const authLink = setContext(async (_, { headers }) => {

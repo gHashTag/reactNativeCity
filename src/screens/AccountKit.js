@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*eslint-disable*/
 import React from 'react'
 import { StyleSheet, View, Button } from 'react-native'
 import { useMutation } from 'react-apollo-hooks'
@@ -16,18 +16,6 @@ const styles = StyleSheet.create({
   }
 })
 
-const REFRESH_TOKEN_QUERY = gql`
-  mutation UpdateToken($token: String!) {
-    updateToken(token: $token) {
-      user {
-        name
-        phone
-      }
-      token
-    }
-  }
-`
-
 const SIGN_IN = gql`
   mutation SignIn($code: String!) {
     signIn(code: $code) {
@@ -40,9 +28,21 @@ const SIGN_IN = gql`
     }
   }
 `
-
+//const UPDATE_TOKEN = gql`
+//  mutation UpdateToken($token: String!) {
+//    updateToken(token: $token) {
+//      user {
+//        name
+//        phone
+//      }
+//      token
+//    }
+//  }
+//`
 const AccountKit = ({ navigation }) => {
   const sign = useMutation(SIGN_IN)
+  //const update = useMutation(UPDATE_TOKEN)
+  //const [check, setCheck] = useState(false)
 
   const handleSignIn = code => {
     sign({
@@ -55,18 +55,46 @@ const AccountKit = ({ navigation }) => {
     })
   }
 
+  const transition = () => {
+    navigation.navigate('HOME')
+  }
+
+  // const refreshToken = token => {
+  //   console.log('refreshToken', token)
+  //   update({
+  //     variables: { token },
+  //     update: async (cache, { data }) => {
+  //       const username = 'token'
+  //       const password = data.updateToken.token
+  //       await Keychain.setGenericPassword(username, password)
+  //     }
+  //   })
+  // }
+
   const getToken = async () => {
     RNAccountKit.configure({
       responseType: 'code',
       initialPhoneCountryPrefix: '+7',
-      initialPhoneNumber: '9261439109',
+      initialPhoneNumber: '9855316514',
       defaultCountry: 'RU'
-      //hello Jenya
     })
     const payload = await RNAccountKit.loginWithPhone()
+    console.log('payload.code', payload.code)
     handleSignIn(payload.code)
+    transition()
   }
 
+  //  const checkToken = async () => {
+  //    const credentials = await Keychain.getGenericPassword()
+  //    if (credentials) {
+  //      setCheck(true)
+  //      refreshToken(credentials.password)
+  //    } else {
+  //      setCheck(false)
+  //    }
+  //  }
+
+  //  checkToken()
   const { container } = styles
   return (
     <View style={container}>
